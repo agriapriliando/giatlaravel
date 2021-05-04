@@ -1,0 +1,54 @@
+.bg-gradient {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #d235c6 76%);
+}
+.btn-primary {
+    background-color: #d610c6 !important;
+    border: #881e81 solid 1px;
+}
+.btn-primary:hover {
+    background-color: #881e81 !important;
+    border: #881e81 solid 1px;
+}
+
+.hr {
+    border: 2px solid white;
+    background-color: white;
+}
+
+/* css autocomplete search */
+.has-search .form-control {
+    padding-left: 40px;
+}
+.has-search .form-control-feedback {
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    z-index: 2;
+    display: block;
+    width: 1.6rem;
+    height: 1.6rem;
+    /* line-height: 2.375rem; */
+    text-align: center;
+    /* pointer-events: none; */
+    color: #781ea8;
+}
+
+/* datatable search column */
+tfoot input {
+    width: 100%;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+table.dataTable th {
+    font-size: 0.8em;
+}
+
+table.dataTable td {
+    font-size: 1em;
+}
+
+/* table.dataTable tr.dtrg-level-0 td {
+    font-size: 1.1em;
+} */
