@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,7 @@ Route::get('/org/edit', [OrganizationController::class, 'orgedit']);
 Route::get('/unit', [UnitController::class, 'unitlist']);
 Route::get('/unit/add', [UnitController::class, 'unitadd']);
 Route::get('/unit/edit', [UnitController::class, 'unitedit']);
+
+// employeeController
+Route::get('/emp', [EmployeeController::class, 'emp']);
+Route::get('/emp/list', [EmployeeController::class, 'emplist']);

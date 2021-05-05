@@ -79,8 +79,8 @@
                             </a>
                             <div class="collapse" id="collapseData" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Profil Saya</a>
-                                    <a class="nav-link" href="#">Daftar Pegawai</a>
+                                    <a class="nav-link" href="{{ url('emp')}} ">Profil Saya</a>
+                                    <a class="nav-link" href="{{ url('emp/list')}} ">Daftar Pegawai</a>
                                 </nav>
                             </div>
                             <!-- data pegawai -->
