@@ -14,22 +14,19 @@
 <div class="container-fluid text-white">
     <h1 class="mt-4">Selamat Datang, <b>Agri Apriliando</b></h1>
     <div class="row">
-        <div class="col">
+        <div class="col-12">
             <p>Ini adalah layanan perekaman kegiatan harian.</p>
+            <a href="#" class="btn btn-info mb-2"><i class="fa fa-plus-square"></i> TAMBAH KEGIATAN</a>
         </div>
     </div>
     <div class="card mb-4" style="color: black !important">
         <div class="card-header">
             <i class="fas fa-table mr-1"></i>
             DAFTAR KEGIATAN ANDA
-            <div class="float-right">
-                <a href="#" class="btn btn-info"><i class="fa fa-plus-square"></i> TAMBAH</a>
-                <a href="#" class="btn btn-info"><i class="fa fa-print"></i> PRINT/ CETAK</a>
-            </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered display responsive nowrap" id="dataKegiatan" width="100%" cellspacing="0">
+                <table class="table table-bordered display responsive" id="dataKegiatan" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>Kegiatan</th>

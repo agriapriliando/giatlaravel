@@ -92,8 +92,8 @@
                             </a>
                             <div class="collapse" id="collapseLembaga" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Organisasi</a>
-                                    <a class="nav-link" href="#">Unit / Sub Unit</a>
+                                    <a class="nav-link" href="{{ url('org')}} ">Organisasi</a>
+                                    <a class="nav-link" href="{{ url('unit')}} ">Unit / Sub Unit</a>
                                 </nav>
                             </div>
                             <!-- data lembaga -->
@@ -105,8 +105,8 @@
                             </a>
                             <div class="collapse" id="collapseLaporan" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Ekspor Bulanan</a>
-                                    <a class="nav-link" href="#">Ekspor Harian</a>
+                                    <a class="nav-link" href="{{ url('monthly')}}">Ekspor Bulanan</a>
+                                    <a class="nav-link" href="{{ url('daily')}}">Ekspor Harian</a>
                                 </nav>
                             </div>
                             <!-- data pegawai -->

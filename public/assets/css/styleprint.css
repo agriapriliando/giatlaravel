@@ -17,16 +17,32 @@ page[size="A4"] {
     /* height: 29.7cm;  */
 }
 
+.ttdkiri {
+    padding-top: 12vh;
+}
+
+.ttdkanan {
+    padding-top: 19.8vh;
+}
+
 @media print {
     body, page {
     margin: 0;
     box-shadow: 0;
-    /* font-size: 18px; */
+    font-size: 17px;
     }
 
     page[size="A4"] {  
         width: 100%;
         height: 29.7cm; 
+    }
+
+    .ttdkiri {
+        padding-top: 6vh;
+    }
+
+    .ttdkanan {
+        padding-top: 9.9vh;
     }
 }
 

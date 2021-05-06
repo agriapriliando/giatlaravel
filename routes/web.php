@@ -6,6 +6,7 @@ use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +44,6 @@ Route::get('/unit/edit', [UnitController::class, 'unitedit']);
 // employeeController
 Route::get('/emp', [EmployeeController::class, 'emp']);
 Route::get('/emp/list', [EmployeeController::class, 'emplist']);
+
+Route::get('/monthly',[ReportController::class, 'monthly']);
+Route::get('/daily',[ReportController::class, 'daily']);

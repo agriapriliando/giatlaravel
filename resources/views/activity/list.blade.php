@@ -17,9 +17,9 @@
         <div class="card-header">
             <i class="fas fa-table mr-1"></i>
             Daftar Kegiatan Anda
-            <div class="float-right">
-                <a href="#" class="btn btn-info">EKSPORT PDF</a>
-                <a href="#" class="btn btn-info">PRINT/ CETAK</a>
+            <div class="float-right" style="display: none">
+                <a href="{{ url('')}} " class="btn btn-info">EKSPORT PDF</a>
+                <a href="{{ url('')}} " class="btn btn-info">PRINT/ CETAK</a>
             </div>
         </div>
         <div class="card-body">
