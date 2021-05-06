@@ -23,12 +23,14 @@ class LoginController extends Controller
                 session([
                     'user' => 'admin',
                     'id' => $users->id,
+                    'org' => $users->organization_id
                     ]);
                 return redirect('dashboard');
             } elseif($users->role == 2) {
                 session([
                     'user' => 'pegawai',
                     'id' => $users->id,
+                    'org' => $users->organization_id
                     ]);
                 return redirect('dashboard');
             }
