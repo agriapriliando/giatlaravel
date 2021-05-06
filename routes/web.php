@@ -26,6 +26,8 @@ use App\Http\Controllers\LoginController;
 
 // loginController
 Route::get('/', [LoginController::class, 'index']);
+Route::post('/', [LoginController::class, 'authenticate']);
+Route::get('/logout', [LoginController::class, 'logout']);
 
 // dashboardController
 Route::get('/dashboard', [DashboardController::class, 'index']);
