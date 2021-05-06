@@ -105,17 +105,17 @@
                             </a>
                             <div class="collapse" id="collapseLaporan" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ url('monthly')}}">Ekspor Bulanan</a>
-                                    <a class="nav-link" href="{{ url('daily')}}">Ekspor Harian</a>
+                                    <a class="nav-link" href="{{ url('monthly')}}">Cetak Bulanan</a>
+                                    <a class="nav-link" href="{{ url('daily')}}">Cetak Harian</a>
                                 </nav>
                             </div>
                             <!-- data pegawai -->
-                            <div class="sb-sidenav-menu-heading">Menu Publik</div>
+                            {{-- <div class="sb-sidenav-menu-heading">Menu Publik</div>
                             <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Kegiatan Pegawai
                             </a>
-                            {{-- <div class="sb-sidenav-menu-heading">Setting</div>
+                            <div class="sb-sidenav-menu-heading">Setting</div>
                             <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Statistik

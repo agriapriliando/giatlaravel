@@ -7,6 +7,7 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,11 @@ use App\Http\Controllers\ReportController;
 //     return view('welcome');
 // });
 
-Route::get('/', [DashboardController::class, 'index']);
+// loginController
+Route::get('/', [LoginController::class, 'index']);
+
+// dashboardController
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 // ActivityController
 Route::get('/act', [ActivityController::class, 'actlist']);
