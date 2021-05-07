@@ -20,15 +20,17 @@
     </div>
     <div class="row">
         <div class="col-md-8 col-lg-8 col-12">
-            <form method="" >
+            <form method="POST" action="{{ url('/org/edit/'.$org->id)}}">
+                @method('PATCH')
+                @csrf
                 <div class="form-group">
                   <label>Title / Nama Organisasi</label>
-                  <input name="title" type="text" class="form-control" placeholder="Masukan nama Organisasi" required>
+                  <input name="title" type="text" class="form-control" placeholder="Masukan nama Organisasi" value="{{$org->title}}" required>
                   <small>Petunjuk : Isi dengan Nama Organisasi | Contoh 1 : Institut Agama Kristen Negeri Palangka Raya | Contoh 2 : Universitas Palangka Raya</small>
                 </div>
                 <div class="form-group">
                     <label>Deskripsi Organisasi</label>
-                    <textarea name="desc"class="form-control" required></textarea>
+                    <textarea name="desc"class="form-control" required>{{ $org->desc}}</textarea>
                     <small>Petunjuk : Jelasakan Profil Organisasi secara ringkas | Kontak, dan informasi dasar</small>
                 </div>
                 <div class="row">

@@ -33,6 +33,13 @@ class LoginController extends Controller
                     'org' => $users->organization_id
                     ]);
                 return redirect('dashboard');
+            } elseif($users->role == 0) {
+                session([
+                    'user' => 'superadmin',
+                    'id' => $users->id,
+                    'org' => $users->organization_id
+                    ]);
+                return redirect('dashboard');
             }
         }
 

@@ -20,7 +20,9 @@
     </div>
     <div class="row">
         <div class="col-md-8 col-lg-8 col-12">
-            <form method="" >
+            <form method="POST" action="{{ url('org/addprocess') }}">
+                @csrf
+                @method('PUT')
                 <div class="form-group">
                   <label>Title / Nama Organisasi</label>
                   <input name="title" type="text" class="form-control" placeholder="Masukan nama Organisasi" required>

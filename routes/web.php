@@ -32,21 +32,25 @@ Route::get('/logout', [LoginController::class, 'logout']);
 // dashboardController
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
+// OrganizationController
+Route::get('/org', [OrganizationController::class, 'orglist']);
+Route::get('/org/add', [OrganizationController::class, 'orgadd']);
+Route::put('/org/addprocess', [OrganizationController::class, 'orgaddProcess']);
+Route::delete('/org/delete/{id}', [OrganizationController::class, 'orgDelete']);
+Route::get('/org/edit/{id}', [OrganizationController::class, 'orgedit']);
+Route::patch('/org/edit/{id}', [OrganizationController::class, 'orgeditProcess']);
+
+// UnitController
+Route::get('/unit', [UnitController::class, 'unitlist']);
+Route::get('/unit/add', [UnitController::class, 'unitadd']);
+Route::get('/unit/edit', [UnitController::class, 'unitedit']);
+
 // ActivityController
 Route::get('/act', [ActivityController::class, 'actlist']);
 Route::get('/act/detail', [ActivityController::class, 'actdetail']);
 Route::get('/act/add', [ActivityController::class, 'actadd']);
 Route::get('/act/edit', [ActivityController::class, 'actedit']);
 
-// OrganizationController
-Route::get('/org', [OrganizationController::class, 'orglist']);
-Route::get('/org/add', [OrganizationController::class, 'orgadd']);
-Route::get('/org/edit', [OrganizationController::class, 'orgedit']);
-
-// UnitController
-Route::get('/unit', [UnitController::class, 'unitlist']);
-Route::get('/unit/add', [UnitController::class, 'unitadd']);
-Route::get('/unit/edit', [UnitController::class, 'unitedit']);
 
 // employeeController
 Route::get('/emp', [EmployeeController::class, 'emp']);

@@ -17,9 +17,13 @@
         <div class="card-header">
             <i class="fas fa-table mr-1"></i>
             Daftar Kegiatan Anda
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="float-right">
-                <a href="#" class="btn btn-info">EKSPORT PDF</a>
-                <a href="#" class="btn btn-info">PRINT/ CETAK</a>
+                <a href="{{ url('org/add')}} " class="btn btn-info"><i class="fa fa-plus"></i> TAMBAH ORGANISASI</a>
             </div>
         </div>
         <div class="card-body">
@@ -29,6 +33,7 @@
                         <tr>
                             <th>No</th>
                             <th>Organisasi</th>
+                            <th>Deskripsi</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -36,18 +41,26 @@
                         <tr>
                             <th>No</th>
                             <th>Organisasi</th>
+                            <th>Deskripsi</th>
                             <th>Aksi</th>
                         </tr>
                     </tfoot>
                     <tbody>
+                        @foreach ($org as $item)
                         <tr>
-                            <td>1.</td>
-                            <td>IAKN Palangka Raya</td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->title}} </td>
+                            <td>{{ $item->desc}} </td>
                             <td>
-                                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> Lihat</a>
-                                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Hapus</a>
+                                <a href="{{url('org/edit/'.$item->id)}}" class="btn btn-info btn-sm mb-1"><i class="fas fa-edit"></i> Ubah</a>
+                                <form action="{{url('org/delete/'.$item->id)}}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Yakin ingin Hapus Data?')"><span><i class="fas fa-trash"></i> Hapus</button>
+                                </form>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
