@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             // UserSeeder::class,
             // OrganizationSeeder::class,
             // UserorgSeeder::class,
-            UnitSeeder::class
+            UnitSeeder::class,
+            LeaderSeeder::class
         ]);
     }
 }

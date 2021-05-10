@@ -54,4 +54,13 @@ class UnitController extends Controller
 
         return redirect('/unit')->with('status','Data berhasil dirubah');
     }
+
+    public function unitDelete($id)
+    {
+        $unit = Unit::find($id);
+        $unit->delete();
+
+        return redirect('unit')->with('status', 'Data Unit Berhasil Dihapus');
+    }
+
 }

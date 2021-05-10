@@ -94,6 +94,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ url('org')}} ">Organisasi</a>
                                     <a class="nav-link" href="{{ url('unit')}} ">Unit / Sub Unit</a>
+                                    <a class="nav-link" href="{{ url('leader')}} ">Atasan Langsung</a>
                                 </nav>
                             </div>
                             <!-- data lembaga -->

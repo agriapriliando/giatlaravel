@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\LeaderController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\LoginController;
@@ -36,9 +37,9 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/org', [OrganizationController::class, 'orglist']);
 Route::get('/org/add', [OrganizationController::class, 'orgadd']);
 Route::put('/org/addprocess', [OrganizationController::class, 'orgaddProcess']);
-Route::delete('/org/delete/{id}', [OrganizationController::class, 'orgDelete']);
 Route::get('/org/edit/{id}', [OrganizationController::class, 'orgedit']);
 Route::patch('/org/edit/{id}', [OrganizationController::class, 'orgeditProcess']);
+Route::delete('/org/delete/{id}', [OrganizationController::class, 'orgDelete']);
 
 // UnitController
 Route::get('/unit', [UnitController::class, 'unitlist']);
@@ -46,6 +47,15 @@ Route::get('/unit/add', [UnitController::class, 'unitadd']);
 Route::put('/unit/addprocess', [UnitController::class, 'unitaddProcess']);
 Route::get('/unit/edit/{id}', [UnitController::class, 'unitedit']);
 Route::patch('/unit/editprocess/{id}', [UnitController::class, 'uniteditProcess']);
+Route::delete('/unit/delete/{id}', [UnitController::class, 'unitDelete']);
+
+// LeaderController
+Route::get('leader', [LeaderController::class, 'list']);
+Route::get('leader/add', [LeaderController::class, 'leaderadd']);
+Route::put('leader/addprocess', [LeaderController::class, 'leaderaddprocess']);
+Route::get('leader/edit/{id}', [LeaderController::class, 'leaderedit']);
+Route::patch('leader/editprocess/{id}', [LeaderController::class, 'leadereditProcess']);
+Route::delete('leader/delete/{id}', [LeaderController::class, 'leaderDelete']);
 
 // ActivityController
 Route::get('/act', [ActivityController::class, 'actlist']);
