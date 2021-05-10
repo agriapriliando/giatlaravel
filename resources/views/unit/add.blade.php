@@ -20,7 +20,9 @@
     </div>
     <div class="row">
         <div class="col-md-8 col-lg-8 col-12">
-            <form method="" >
+            <form method="POST" action="{{ url('unit/addprocess')}}">
+                @method('PUT')
+                @csrf
                 <div class="form-group">
                   <label>Nama Sub Unit</label>
                   <input name="title" type="text" class="form-control" placeholder="Masukan Nama Sub Unit" required>
@@ -28,9 +30,11 @@
                 </div>
                 <div class="form-group">
                     <label>Pilih Organisasi</label>
-                    <select class="custom-select" name="id_organization" autocomplete="on">
+                    <select class="custom-select" name="organization_id" autocomplete="on">
                         <option selected>Pilih Organisasi</option>
-                        <option value="1">IAKN Palangka Raya</option>
+                        @foreach ($org as $item)
+                        <option value="{{ $item->id}}">{{ $loop->iteration." | ".$item->title}}</option>
+                        @endforeach
                     </select>
                     <small>Petunjuk : Pilih Organisasi Induk dari Sub Unit</small>
                 </div>

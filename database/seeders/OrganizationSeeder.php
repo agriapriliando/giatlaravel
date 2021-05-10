@@ -25,4 +25,5 @@ class OrganizationSeeder extends Seeder
             ]
         ]);
     }
+
 }

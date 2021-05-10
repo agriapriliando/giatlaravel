@@ -17,19 +17,25 @@
         <div class="card-header">
             <i class="fas fa-table mr-1"></i>
             Daftar Kegiatan Anda
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="float-right">
-                <a href="#" class="btn btn-info">EKSPORT PDF</a>
-                <a href="#" class="btn btn-info">PRINT/ CETAK</a>
+                <a href="{{ url('unit/add')}}" class="btn btn-info"><i class="fa fa-plus"></i> TAMBAH UNIT/SUB UNIT</a>
             </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered display responsive nowrap" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered display responsive" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>Organisasi</th>
                             <th>Nama Sub Unit</th>
+                            <th>Deskripsi</th>
+                            <th>Level</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -38,28 +44,28 @@
                             <th>No</th>
                             <th>Organisasi</th>
                             <th>Nama Sub Unit</th>
+                            <th>Deskripsi</th>
+                            <th>Level</th>
                             <th>Aksi</th>
                         </tr>
                     </tfoot>
                     <tbody>
+                        @foreach ($unit as $item)
                         <tr>
-                            <td>1.</td>
-                            <td>IAKN Palangka Raya</td>
-                            <td>UPT Teknologi Informasi dan Pangkalan Data</td>
+                            <td>{{ $loop->iteration}}</td>
+                            <td>{{ $item->organization->title}}</td>
+                            <td>{{ $item->title}}</td>
+                            <td>{{ $item->desc}}</td>
+                            <td>{{ $item->level}}</td>
                             <td>
-                                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> Lihat</a>
+                                <a href="{{ url('unit/edit/'.$item->id)}} " class="btn btn-info btn-sm"><i class="fas fa-eye"></i>Ubah</a>
                                 <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Hapus</a>
+                                <form action="{{ url('unit/delete')}}">
+                                
+                                </form>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2.</td>
-                            <td>IAKN Palangka Raya</td>
-                            <td>Sub Bagian Administrasi Umum</td>
-                            <td>
-                                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> Lihat</a>
-                                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Hapus</a>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

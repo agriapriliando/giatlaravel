@@ -43,7 +43,9 @@ Route::patch('/org/edit/{id}', [OrganizationController::class, 'orgeditProcess']
 // UnitController
 Route::get('/unit', [UnitController::class, 'unitlist']);
 Route::get('/unit/add', [UnitController::class, 'unitadd']);
-Route::get('/unit/edit', [UnitController::class, 'unitedit']);
+Route::put('/unit/addprocess', [UnitController::class, 'unitaddProcess']);
+Route::get('/unit/edit/{id}', [UnitController::class, 'unitedit']);
+Route::patch('/unit/editprocess/{id}', [UnitController::class, 'uniteditProcess']);
 
 // ActivityController
 Route::get('/act', [ActivityController::class, 'actlist']);
