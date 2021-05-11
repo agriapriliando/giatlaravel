@@ -19,10 +19,10 @@
             <i class="fas fa-table mr-1"></i>
             Daftar Pegawai di Lingkungan IAKN Palangka Raya
             <div class="float-right">
-                <a href="#" class="btn btn-info"><i class="fa fa-plus"></i> TAMBAH PEGAWAI</a>
-                <a href="#" class="btn btn-info"><i class="fa fa-file-download"></i> UNDUH TEMPLATE</a>
+                <a href="{{url('emp/add')}}" class="btn btn-info"><i class="fa fa-plus"></i> TAMBAH PEGAWAI</a>
+                {{-- <a href="#" class="btn btn-info"><i class="fa fa-file-download"></i> UNDUH TEMPLATE</a>
                 <a href="#" class="btn btn-info"><i class="fa fa-file-import"></i> IMPORT EXCEL</a>
-            </div>
+            </div> --}}
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -34,6 +34,7 @@
                             <th>NIP</th>
                             <th>Unit Kerja</th>
                             <th>Jabatan</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -43,45 +44,27 @@
                             <th>NIP</th>
                             <th>Unit Kerja</th>
                             <th>Jabatan</th>
+                            <th>Aksi</th>
                         </tr>
                     </tfoot>
                     <tbody>
+                        @foreach ($emp as $item)
                         <tr>
-                            <td>1.</td>
-                            <td>Agri Apriliando, ST</td>
-                            <td>19930429 201903 1 011</td>
-                            <td>UPT Teknologi Informasi dan Pangkalan Data TIPD</td>
-                            <td>Calon Pranata Komputer / Plt. Kepala UPT Teknologi Informasi dan Pangkalan Data</td>
-                        </tr>
-                        <tr>
-                            <td>2.</td>
-                            <td>Susi, ST</td>
-                            <td>HR</td>
-                            <td>UPT Teknologi Informasi dan Pangkalan Data</td>
-                            <td>Pramubakti / Operator PDDIKTI</td>
-                        </tr>
-                        <tr>
-                            <td>3.</td>
-                            <td>Novita Erintanti, ST</td>
-                            <td>HR</td>
-                            <td>UPT Teknologi Informasi dan Pangkalan Data</td>
-                            <td>Pramubakti / Operator PDDIKTI</td>
-                        </tr>
-                        <tr>
-                            <td>4.</td>
-                            <td>Endang Juwanto, ST</td>
-                            <td>HR</td>
-                            <td>UPT Teknologi Informasi dan Pangkalan Data</td>
-                            <td>Pramubakti / Pengelola Jaringan Internet</td>
-                        </tr>
-                        <tr>
-                            <td>5.</td>
-                            <td>Andika Silviana, ST</td>
-                            <td>HR</td>
-                            <td>Sub Bagian Administrasi Umum</td>
-                            <td>Pramubakti / Kepegawaian</td>
-                        </tr>
-                        
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->nip}}</td>
+                            <td>{{$item->unit->title}}</td>
+                            <td>{{$item->job}}</td>
+                            <td>
+                                <a href="{{url('/emp/edit/'.$item->id)}}" class="btn btn-info btn-sm">Ubah</a>
+                                <form method="POST" action="{{url('/emp/delete/'.$item->id)}}">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button onclick="return confirm('Yakin ingin Hapus Data?')" type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</button>
+                                </form>
+                            </td>
+                        </tr>                        
+                        @endforeach
                     </tbody>
                 </table>
             </div>

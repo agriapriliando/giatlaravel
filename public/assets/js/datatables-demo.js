@@ -68,8 +68,9 @@ $(document).ready(function(){
       { "width": "2%", },
       { "width": "15%" },
       { "width": "15%" },
-      { "width": "35%" },
-      { "width": "33%" }
+      { "width": "30%" },
+      { "width": "26%" },
+      { "width": "12%" },
     ],
     columnDefs: [
       { responsivePriority: 5, targets: 0 },

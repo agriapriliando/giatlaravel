@@ -57,6 +57,15 @@ Route::get('leader/edit/{id}', [LeaderController::class, 'leaderedit']);
 Route::patch('leader/editprocess/{id}', [LeaderController::class, 'leadereditProcess']);
 Route::delete('leader/delete/{id}', [LeaderController::class, 'leaderDelete']);
 
+// EmployeeController
+Route::get('/emp', [EmployeeController::class, 'emp']);
+Route::get('/emp/list', [EmployeeController::class, 'emplist']);
+Route::get('/emp/add', [EmployeeController::class, 'empadd']);
+Route::patch('/emp/addprocess', [EmployeeController::class, 'empaddProcess']);
+Route::get('/emp/edit/{id}', [EmployeeController::class, 'empedit']);
+Route::patch('/emp/editprocess/{id}', [EmployeeController::class, 'empeditProcess']);
+Route::delete('/emp/delete/{id}', [EmployeeController::class, 'empDelete']);
+
 // ActivityController
 Route::get('/act', [ActivityController::class, 'actlist']);
 Route::get('/act/detail', [ActivityController::class, 'actdetail']);
@@ -64,9 +73,6 @@ Route::get('/act/add', [ActivityController::class, 'actadd']);
 Route::get('/act/edit', [ActivityController::class, 'actedit']);
 
 
-// employeeController
-Route::get('/emp', [EmployeeController::class, 'emp']);
-Route::get('/emp/list', [EmployeeController::class, 'emplist']);
 
 Route::get('/monthly',[ReportController::class, 'monthly']);
 Route::get('/daily',[ReportController::class, 'daily']);
