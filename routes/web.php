@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\WorkController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\LeaderController;
@@ -26,11 +26,12 @@ use App\Http\Controllers\LoginController;
 // });
 
 // loginController
-Route::get('/', [LoginController::class, 'index']);
-Route::post('/', [LoginController::class, 'authenticate']);
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
 // dashboardController
+Route::get('/', [DashboardController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
 // OrganizationController
@@ -67,12 +68,16 @@ Route::patch('/emp/editprocess/{id}', [EmployeeController::class, 'empeditProces
 Route::delete('/emp/delete/{id}', [EmployeeController::class, 'empDelete']);
 
 // ActivityController
-Route::get('/act', [ActivityController::class, 'actlist']);
-Route::get('/act/detail', [ActivityController::class, 'actdetail']);
-Route::get('/act/add', [ActivityController::class, 'actadd']);
-Route::get('/act/edit', [ActivityController::class, 'actedit']);
+Route::get('/act', [WorkController::class, 'actlist']);
+Route::get('/act/detail/{id}', [WorkController::class, 'actdetail']);
+Route::get('/act/add', [WorkController::class, 'actadd']);
+Route::put('/act/addprocess', [WorkController::class, 'actaddProcess']);
+Route::get('/act/edit/{id}', [WorkController::class, 'actedit']);
+Route::patch('/act/editprocess/{id}', [WorkController::class, 'acteditProcess']);
+Route::delete('/act/delete/{id}', [WorkController::class, 'actDelete']);
 
 
-
+// ReportController
+Route::get('/report',[ReportController::class, 'report']);
 Route::get('/monthly',[ReportController::class, 'monthly']);
 Route::get('/daily',[ReportController::class, 'daily']);

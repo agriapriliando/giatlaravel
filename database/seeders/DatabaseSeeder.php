@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             // UserorgSeeder::class,
             // UnitSeeder::class,
             // LeaderSeeder::class,
-            EmployeeSeeder::class,
+            // EmployeeSeeder::class,
+            WorkSeeder::class
         ]);
     }
 }

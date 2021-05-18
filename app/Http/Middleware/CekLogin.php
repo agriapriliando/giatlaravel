@@ -18,7 +18,7 @@ class CekLogin
     {
         if(session()->get('user') != 'admin') {
             if(session()->get('user') != 'pegawai') {
-                return redirect('/');
+                return redirect('/login');
             }
         }
         return $next($request);

@@ -53,7 +53,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Utama</div>
-                            <a class="nav-link" href="{{ url('') }} ">
+                            <a class="nav-link" href="{{ url('dashboard') }} ">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -98,8 +98,14 @@
                                 </nav>
                             </div>
                             <!-- data lembaga -->
+                            {{-- menu laporan --}}
+                            {{-- <div class="sb-sidenav-menu-heading">Laporan</div> --}}
+                            <a class="nav-link" href="{{ url('report')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Cetak Laporan
+                            </a>
                             <!-- laporan -->
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLaporan" aria-expanded="false" aria-controls="collapseLaporan">
+                            {{-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLaporan" aria-expanded="false" aria-controls="collapseLaporan">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Laporan
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -109,7 +115,7 @@
                                     <a class="nav-link" href="{{ url('monthly')}}">Cetak Bulanan</a>
                                     <a class="nav-link" href="{{ url('daily')}}">Cetak Harian</a>
                                 </nav>
-                            </div>
+                            </div> --}}
                             <!-- data pegawai -->
                             {{-- <div class="sb-sidenav-menu-heading">Menu Publik</div>
                             <a class="nav-link" href="#">

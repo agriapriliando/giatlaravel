@@ -14,37 +14,37 @@
 <div class="container-fluid text-white">
     <h1 class="mt-4">Hai, <b>Agri Apriliando</b></h1>
     <hr class="hr">
-    <a href="#" class="btn btn-info mb-2">Kembali</a>
-    <a href="#" class="btn btn-info mb-2">Ubah</a>
+    <a href="{{ url('act')}}" class="btn btn-info mb-2">Kembali</a>
+    <a href="{{ url('act/edit/'.$act->id)}}" class="btn btn-info mb-2">Ubah</a>
     <div class="row">
         <div class="col-md-8 col-lg-8 col-12 table-responsive">
             <table class="table table-borderless text-white">
                 <tr>
-                    <td class="font-weight-bold" colspan="3"><i class="fas fa-calendar-alt"></i> 04/05/2021 14:15 WIB</td>
+                    <td class="font-weight-bold" colspan="3"><i class="fas fa-calendar-alt"></i> {{ $act->created_at}}</td>
                 </tr>
                 <tr>
                     <th>Kegiatan</th>
                     <th>:</th>
-                    <td>Melakukan Perancangan Desain Pengolahan Data Presensi Bulanan Pegawai</td>
+                    <td>{{ $act->title}}</td>
                 </tr>
                 <tr>
                     <th>Deskripsi</th>
                     <th>:</th>
-                    <td>Melakukan Perancangan Desain Pengolahan Data Presensi Bulanan Pegawai. Perancangan dilakukan untuk membantu bagian Kepegawaian menghitung dan mengolah data presensi secara otomatis</td>
+                    <td>{{ $act->desc}}</td>
                 </tr>
                 <tr>
                     <th>Jumlah</th>
                     <th>:</th>
-                    <td>1 Kegiatan</td>
+                    <td>{{ $act->qty." ".$act->qtyunit}}</td>
                 </tr>
                 <tr>
                     <th>Unit Kerja / Sub Unit</th>
                     <th>:</th>
-                    <td>UPT Teknologi Informasi dan Pangkalan Data</td>
+                    <td>{{ $act->unit->title}}</td>
                 </tr>
             </table>
-            <a href="#" class="btn btn-info mb-2">Kembali</a>
-            <a href="#" class="btn btn-info mb-2">Ubah</a>
+            <a href="{{ url('act')}}" class="btn btn-info mb-2">Kembali</a>
+            <a href="{{ url('act/edit/'.$act->id)}}" class="btn btn-info mb-2">Ubah</a>
         </div>
     </div>
 </div>
