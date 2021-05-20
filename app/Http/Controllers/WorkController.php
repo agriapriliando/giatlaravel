@@ -30,6 +30,19 @@ class WorkController extends Controller
         return view('work.add');
     }
 
+    public function autocomplete(Request $request)
+    {
+        $datas = Work::select("title")
+                ->where("title","LIKE", '%'.$request->get('query').'%')
+                ->get();
+        $dataModified = array();
+        foreach ($datas as $data)
+        {
+            $dataModified[] = $data->title;
+        }
+        return response()->json($dataModified);
+    }
+
     public function actaddProcess(Request $request)
     {
         $ses_id = session('id');

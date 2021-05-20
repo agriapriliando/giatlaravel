@@ -75,7 +75,7 @@ Route::put('/act/addprocess', [WorkController::class, 'actaddProcess']);
 Route::get('/act/edit/{id}', [WorkController::class, 'actedit']);
 Route::patch('/act/editprocess/{id}', [WorkController::class, 'acteditProcess']);
 Route::delete('/act/delete/{id}', [WorkController::class, 'actDelete']);
-
+Route::get('/autocomplete',[WorkController::class, 'autocomplete'])->name('autocomplete');
 
 // ReportController
 Route::get('/report',[ReportController::class, 'report']);

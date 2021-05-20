@@ -162,11 +162,23 @@
             </div>
         </div>
         <!-- jquery -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+        {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> --}}
         
         <!-- Bootstrap 4 Autocomplete -->
-        <script src="{{ asset('assets/js/bootstrap-4-autocomplete.js')}} "></script>
-        <script src="{{ asset('assets/js/config-autocomplete.js')}} "></script>
+        {{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> --}}
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+        {{-- <script src="{{ asset('assets/js/autocompletework.js')}}"></script> --}}
+        <script type="text/javascript">
+            var path = "{{ route('autocomplete') }}";
+            $('input.typeahead').typeahead({
+                source:  function (query, process) {
+                return $.get(path, { query: query }, function (data) {
+                        return process(data);
+                    });
+                }
+            });
+         </script>
 
         {{-- fontawesome --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
