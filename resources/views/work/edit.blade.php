@@ -26,7 +26,7 @@
                 @csrf
                 <div class="form-group">
                   <label>Judul Kegiatan</label>
-                  <input name="title" type="text" class="form-control @error('title') is-invalid @enderror" placeholder="Masukan judul kegiatan" value="{{old('title',$act->title)}}" required>
+                  <input name="title" type="text" class="typeahead form-control @error('title') is-invalid @enderror" placeholder="Masukan judul kegiatan" value="{{old('title',$act->title)}}" required>
                   <small>Petunjuk : Isi dengan kegiatan utama | Contoh 1 : Pengisian KRS | Contoh 2 : Pembuatan Denah Hotspot Internet</small>
                   @error('title')
                     <div class="invalid-feedback">{{ $message }}</div>

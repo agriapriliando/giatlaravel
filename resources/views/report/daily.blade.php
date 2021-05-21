@@ -31,7 +31,7 @@
         </tr>
     </table>
 
-    <table class="firstTable">
+    <table class="firstTable" style="width: 100%">
         <tr>
             <th>No</th>
             <th>Hari</th>
@@ -48,7 +48,7 @@
             <td class="text-center">{{$loop->iteration}}.</td>
             <td>{{str_ireplace($find,$replace,$item->created_at->format("l"))}}</td>
             <td>{{$item->created_at->format("d/m/Y")}}</td>
-            <td>{{$item->title}}</td>
+            <td><span style="font-weight: bold">{{$item->title}}</span> <span style="font-style: italic">{{"| Detail: ".$item->desc}}</span></td>
             <td class="text-center">{{$item->qty}}</td>
             <td>{{$item->qtyunit}}</td>
         </tr>

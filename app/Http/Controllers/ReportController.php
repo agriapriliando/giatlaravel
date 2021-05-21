@@ -27,13 +27,27 @@ class ReportController extends Controller
         $tanggal = Carbon::createFromFormat('Y-m-d', $date);
         $work = Work::where('user_id',$ses_id)->whereMonth('created_at', $bulan)->whereYear('created_at', $tahun)->get();
         $profil = Employee::where('user_id', $ses_id)->first();
-        // return $tgl;
+
         return view('report.daily', compact('bulan', 'tahun', 'work', 'profil', 'tanggal'));
     }
 
     public function monthly(Request $request)
     {
-        return view('report.monthly');
+        $ses_id = session('id');
+        $bulan = $request->bulan;
+        $tahun = $request->tahun;
+        $date = $request->tanggal;
+        $tanggal = Carbon::createFromFormat('Y-m-d', $date);
+        $work = Work::where('user_id',$ses_id)->whereMonth('created_at', $bulan)->whereYear('created_at', $tahun)->get();
+        $profil = Employee::where('user_id', $ses_id)->first();
+        
+        // sum jumlah bygroup title
+        $works = Work::where('user_id',$ses_id)->whereMonth('created_at', $bulan)->whereYear('created_at', $tahun)
+        ->groupBy('title')
+        ->selectRaw('title, sum(qty) as sum, qtyunit')->get();
+        // ->pluck('sum','title');
+
+        return view('report.monthly', compact('bulan', 'tahun', 'work', 'works', 'profil', 'tanggal'));
     }
 
 }

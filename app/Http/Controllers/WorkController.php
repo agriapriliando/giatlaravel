@@ -33,7 +33,7 @@ class WorkController extends Controller
     public function autocomplete(Request $request)
     {
         $datas = Work::select("title")
-                ->where("title","LIKE", '%'.$request->get('query').'%')
+                ->where("title","LIKE", '%'.$request->get('query').'%')->distinct()
                 ->get();
         $dataModified = array();
         foreach ($datas as $data)

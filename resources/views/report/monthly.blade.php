@@ -1,6 +1,6 @@
 @extends('layout.report')
 
-@section('title','Laporan Bulanan')
+@section('title','Laporan Harian')
 
 @section('content')
 <page size="A4" class="p-5">
@@ -9,130 +9,72 @@
         <a href="" class="btn btn-primary" onclick="window.print()"><i class="fa fa-print"></i> Cetak</a>
     </div>
     <div class="text-center font-weight-bold">
-        <p>LAPORAN KINERJA BULANAN <br>
-        BULAN JANUARI 2021</p>
+        <p>LAPORAN KINERJA HARIAN <br>
+        BULAN {{strtoupper($work[0]->created_at->isoFormat('MMMM'))." ".$work[0]->created_at->format("Y")}}</p>
     </div>
 
     <table>
         <tr>
             <td width="120px">Nama</td>
             <td width="20px">:</td>
-            <td>Agri Apriliando, ST</td>
+            <td>{{$profil->name}}</td>
         </tr>
         <tr>
             <td>Jabatan</td>
             <td>:</td>
-            <td>Calon Pranata Komputer / Plt. Kepala UPT TIPD</td>
+            <td>{{$profil->job}}</td>
         </tr>
         <tr>
             <td width>Unit Kerja</td>
             <td>:</td>
-            <td>UPT Teknologi Informasi dan Pangkalan Data</td>
+            <td>{{$profil->unit->title}}</td>
         </tr>
     </table>
 
-    <table class="firstTable">
+    <table class="firstTable" style="width: 100%">
         <tr>
             <th>No</th>
             <th>Uraian Tugas / Kegiatan</th>
             <th colspan="2">Volume</th>
         </tr>
+        @foreach ($works as $item)
         <tr>
-            <td class="text-center">1</td>
-            <td>Pembaharuan Format DataSheet, Statistik, dan Formula SheetBase Kepegawaian dan Olah Rekap Presensi</td>
-            <td class="text-center">4</td>
-            <td>Kegiatan</td>
+            <td class="text-center">{{$loop->iteration}}</td>
+            <td>{{$item->title}}</td>
+            <td class="text-center">{{$item->sum}}</td>
+            <td>{{$item->qtyunit}}</td>
         </tr>
-        <tr>
-            <td class="text-center">2</td>
-            <td>Mengikuti Webinar Uji Publik Juknis Pranata Komputer oleh BPS dan Webinar Smart Digital Citizenship oleh BSSN dan Idcloudcomputing</td>
-            <td class="text-center">2</td>
-            <td>Kegiatan</td>
-        </tr>
-        <tr>
-            <td class="text-center">3</td>
-            <td>Perekaman dengan Validasi SIMPEG, SAPK, GoogleSheet, Simdiklat Terbaru, Website Institusi</td>
-            <td class="text-center">2000</td>
-            <td>Karakter</td>
-        </tr>
-        <tr>
-            <td class="text-center">3</td>
-            <td>Perekaman dengan Validasi SIMPEG, SAPK, GoogleSheet, Simdiklat Terbaru, Website Institusi</td>
-            <td class="text-center">2000</td>
-            <td>Karakter</td>
-        </tr>
-        <tr>
-            <td class="text-center">3</td>
-            <td>Perekaman dengan Validasi SIMPEG, SAPK, GoogleSheet, Simdiklat Terbaru, Website Institusi</td>
-            <td class="text-center">2000</td>
-            <td>Karakter</td>
-        </tr>
-        <tr>
-            <td class="text-center">3</td>
-            <td>Perekaman dengan Validasi SIMPEG, SAPK, GoogleSheet, Simdiklat Terbaru, Website Institusi</td>
-            <td class="text-center">2000</td>
-            <td>Karakter</td>
-        </tr>
-        <tr>
-            <td class="text-center">3</td>
-            <td>Perekaman dengan Validasi SIMPEG, SAPK, GoogleSheet, Simdiklat Terbaru, Website Institusi</td>
-            <td class="text-center">2000</td>
-            <td>Karakter</td>
-        </tr>
-        <tr>
-            <td class="text-center">3</td>
-            <td>Perekaman dengan Validasi SIMPEG, SAPK, GoogleSheet, Simdiklat Terbaru, Website Institusi</td>
-            <td class="text-center">2000</td>
-            <td>Karakter</td>
-        </tr>
-        <tr>
-            <td class="text-center">3</td>
-            <td>Perekaman dengan Validasi SIMPEG, SAPK, GoogleSheet, Simdiklat Terbaru, Website Institusi</td>
-            <td class="text-center">2000</td>
-            <td>Karakter</td>
-        </tr>
-        <tr>
-            <td class="text-center">3</td>
-            <td>Perekaman dengan Validasi SIMPEG, SAPK, GoogleSheet, Simdiklat Terbaru, Website Institusi</td>
-            <td class="text-center">2000</td>
-            <td>Karakter</td>
-        </tr>
-        <tr>
-            <td class="text-center">3</td>
-            <td>Perekaman dengan Validasi SIMPEG, SAPK, GoogleSheet, Simdiklat Terbaru, Website Institusi</td>
-            <td class="text-center">2000</td>
-            <td>Karakter</td>
-        </tr>
-        <tr>
-            <td class="text-center">3</td>
-            <td>Perekaman dengan Validasi SIMPEG, SAPK, GoogleSheet, Simdiklat Terbaru, Website Institusi</td>
-            <td class="text-center">2000</td>
-            <td>Karakter</td>
-        </tr>
+        @endforeach
     </table>
 
     <div class="row justify-content-center">
-        <div class="col-1"> 
+        <div class="col-1">
+
         </div>
         <div class="col-5 pengesahan">
             <div class="mt-5">
                 <p>Mengetahui,<br>
-                Wakil Rektor Bidang Administrasi Umum, Perencanaan dan Keuangan</p>
+                {{$profil->leader->job}},</p>
             </div>
             <div class="ttdkiri">
-                <p>Tirta Susila, D.Th<br>
-                NIP. 19730621 200604 2 001</p>
+                <p>{{$profil->leader->name}}<br>
+                NIP. {{$profil->leader->nip}}</p>
             </div>
         </div>
         <div class="col-1">
-
         </div>
         <div class="col-5">
-            <p>Palangka Raya, <span id="date-time"></span></p>
+            {{-- <p>Palangka Raya, <span id="date-time"></span></p> --}}
+            <?php
+                $replace = array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus","September","Oktober","November","Desember");
+                $find = array("1","2","3","4","5","6","7","8","9","10","11","12");
+            ?>
+            <p>Palangka Raya, {{$tanggal->format('d')." ".str_replace($find,$replace,$tanggal->format('n'))." ".$tanggal->format('Y')}}</p>
+            {{-- <p>Palangka Raya, {{$tanggal}}</p> --}}
             <p>Yang bersangkutan,</p>
             <div class="ttdkanan">
-                <p>Agri Apriliando, ST <br>
-                NIP. 19930429 201903 1 011</p>
+                <p>{{$profil->name}} <br>
+                NIP. {{$profil->nip}}</p>
             </div>
         </div>
     </div>
