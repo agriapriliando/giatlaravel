@@ -104,6 +104,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Cetak Laporan
                             </a>
+                            <a class="nav-link" href="{{ url('user')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Akun Pengguna
+                            </a>
                             <!-- laporan -->
                             {{-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLaporan" aria-expanded="false" aria-controls="collapseLaporan">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -178,6 +182,24 @@
                     });
                 }
             });
+
+            var pathtwo = "{{ route('employeeac') }}";
+            $('input.employeeac').typeahead({
+                highlight: true,
+                displayText: function(item) {
+                    return item.label
+                },
+                afterSelect: function(item) {
+                        this.$element[0].value = item.label;
+                        $("#field_id").val(item.id);
+                },
+                source:  function (query, process) {
+                return $.get(pathtwo, { query: query }, function (data) {
+                        return process(data);
+                    });
+                }
+            });
+            
          </script>
 
         {{-- fontawesome --}}

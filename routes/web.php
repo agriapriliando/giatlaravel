@@ -9,6 +9,7 @@ use App\Http\Controllers\LeaderController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,3 +82,10 @@ Route::get('/autocomplete',[WorkController::class, 'autocomplete'])->name('autoc
 Route::get('/report',[ReportController::class, 'report']);
 Route::get('/monthly',[ReportController::class, 'monthly']);
 Route::get('/daily',[ReportController::class, 'daily']);
+
+//UserController
+Route::get('/user',[UserController::class, 'index']);
+Route::get('/employeeac',[UserController::class, 'employeeac'])->name('employeeac');
+Route::get('/user/edit/{id}', [UserController::class, 'useredit']);
+Route::patch('/user/edit/{id}', [UserController::class, 'usereditProcess']);
+Route::delete('/user/delete/{id}', [UserController::class, 'userDelete']);
