@@ -25,7 +25,7 @@
                 @csrf
                 <div class="form-group">
                   <label>Masukan Password Baru</label>
-                  <input name="password" type="text" class="form-control" placeholder="Masukan Password Baru" required value="{{ old('password') }}">
+                  <input name="password" type="text" class="form-control" placeholder="Masukan Password Baru" value="{{ old('password') }}">
                   <small>Petunjuk : Isi dengan password baru anda</small>
                 </div>
                 <div class="row">

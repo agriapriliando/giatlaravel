@@ -20,7 +20,7 @@
     <body class="sb-nav-fixed">
         @section('navbartop')
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Aplikasi Giat</a>
+            <a class="navbar-brand" href="#"><i class="fa fa-chalkboard-teacher"></i> G I A T</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -57,20 +57,8 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
+                            @if (session('user') == 'admin')
                             <div class="sb-sidenav-menu-heading">Menu</div>
-                            <!-- kegiatan -->
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKegiatan" aria-expanded="false" aria-controls="collapseKegiatan">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Kegiatan
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseKegiatan" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ url('act')}}">Lihat</a>
-                                    <a class="nav-link" href="{{ url('act/add')}}">Tambah</a>
-                                </nav>
-                            </div>
-                            <!-- kegiatan -->
                             <!-- data pegawai -->
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseData" aria-expanded="false" aria-controls="collapseData">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -79,7 +67,7 @@
                             </a>
                             <div class="collapse" id="collapseData" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ url('emp')}} ">Profil Saya</a>
+                                    {{-- <a class="nav-link" href="{{ url('emp')}} ">Profil Saya</a> --}}
                                     <a class="nav-link" href="{{ url('emp/list')}} ">Daftar Pegawai</a>
                                 </nav>
                             </div>
@@ -100,13 +88,14 @@
                             <!-- data lembaga -->
                             {{-- menu laporan --}}
                             {{-- <div class="sb-sidenav-menu-heading">Laporan</div> --}}
-                            <a class="nav-link" href="{{ url('report')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Cetak Laporan
-                            </a>
                             <a class="nav-link" href="{{ url('user')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Akun Pengguna
+                            </a>
+                            @endif
+                            <a class="nav-link" href="{{ url('report')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Cetak Laporan
                             </a>
                             <!-- laporan -->
                             {{-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLaporan" aria-expanded="false" aria-controls="collapseLaporan">

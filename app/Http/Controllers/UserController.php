@@ -46,7 +46,7 @@ class UserController extends Controller
         $user->employee_id = $request->employee_id;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->name);
+        $user->password = Hash::make('iakn2021');
         $user->role = $request->role;
         $user->save();
 
@@ -84,7 +84,11 @@ class UserController extends Controller
     public function userPassProcess($id, Request $request)
     {
         $user = User::find($id);
-        $user->password = Hash::make($request->password);
+        if($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        } else {
+            $user->password = Hash::make('iakn2021');
+        }
         $user->save();
 
         return redirect('/user')->with('status','Password berhasil dirubah');

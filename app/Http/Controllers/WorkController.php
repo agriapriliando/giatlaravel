@@ -10,12 +10,19 @@ use App\Models\Unit;
 use App\Models\Organization;
 use App\Models\Work;
 
+use Illuminate\Support\Facades\DB;
+
 class WorkController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('ceklogin');
+    }
+
     public function actlist()
     {
         $ses_id = session('id');
-        $act = Work::where('user_id', $ses_id)->get();
+        $act = Work::where('user_id', $ses_id)->orderByDesc('created_at')->get();
         return view('work.list', compact('act'));
     }
 
@@ -49,7 +56,7 @@ class WorkController extends Controller
         $ses_org = session('id');
         $emp = Employee::find($ses_id);
         $unit_user = $emp->unit->id;
-
+        
         $act = new Work;
         $act->user_id = $ses_id;
         $act->unit_id = $unit_user;
@@ -58,7 +65,9 @@ class WorkController extends Controller
         $act->desc = $request->desc;
         $act->qty = $request->qty;
         $act->qtyunit = $request->qtyunit;
-        $act->save();
+        DB::transaction(function () use ($act) {
+            $act->save();
+        });
 
         return redirect('/act')->with('status', 'Kegiatan Berhasil ditambahkan');
     }
@@ -79,7 +88,7 @@ class WorkController extends Controller
         $ses_org = session('id');
         $emp = Employee::find($ses_id);
         $unit_user = $emp->unit->id;
-
+        
         $act = Work::find($id);
         $act->user_id = $ses_id;
         $act->unit_id = $unit_user;
@@ -89,7 +98,9 @@ class WorkController extends Controller
         $act->qty = $request->qty;
         $act->qtyunit = $request->qtyunit;
         $act->created_at = $request->created_at;
-        $act->save();
+        DB::transaction(function () use ($act) {
+            $act->save();
+        });
 
         return redirect('/act')->with('status', 'Kegiatan Berhasil dirubah');
     }

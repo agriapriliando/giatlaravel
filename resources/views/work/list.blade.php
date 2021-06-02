@@ -16,7 +16,7 @@
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table mr-1"></i>
-            Daftar Kegiatan Anda
+            Daftar Seluruh Kegiatan Anda
             @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}
@@ -47,10 +47,10 @@
                     <tbody>
                         @foreach ($act as $item)
                         <tr>
-                            <td>{{ $item->title}}</td>
+                            <td>{{ $item->title }}<span class="font-weight-bold"> | Detail: </span>{{$item->desc}}</td>
                             <td>{{ $item->qty}}</td>
                             <td>{{ $item->qtyunit}}</td>
-                            <td>{{ $item->created_at}}</td>
+                            <td>{{ date_format($item->created_at,'d/m/Y G:H')}}</td>
                             <td>
                                 <a href="{{url('act/detail/'.$item->id)}}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> Lihat</a>
                                 <form action="{{url('act/delete/'.$item->id)}}" method="POST">

@@ -25,7 +25,7 @@ class DashboardController extends Controller
         $tgl = Carbon::now()->isoFormat('D MMMM Y');
         $bulaniniupper = Str::of($bulanini)->upper();
 
-        $act = Work::where('user_id', $ses_id)->whereMonth('created_at',$bulan)->get();
+        $act = Work::where('user_id', $ses_id)->whereMonth('created_at',$bulan)->orderBy('created_at')->get();
         return view('dashboard', compact('act','bulaniniupper','tgl'));
     }
 

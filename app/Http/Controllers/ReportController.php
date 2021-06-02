@@ -13,8 +13,8 @@ class ReportController extends Controller
     public function report()
     {
         $ses_id = session('id');        
-        $listmonths = Work::selectRaw("MONTH(created_at) as listmonth")->distinct()->get();
-        $listyears = Work::selectRaw("YEAR(created_at) as listyear")->distinct()->get();
+        $listmonths = Work::where('user_id', $ses_id)->selectRaw("MONTH(created_at) as listmonth")->distinct()->get();
+        $listyears = Work::where('user_id', $ses_id)->selectRaw("YEAR(created_at) as listyear")->distinct()->get();
         return view('report.list', compact('listmonths','listyears'));
     }
 

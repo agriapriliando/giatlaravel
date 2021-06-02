@@ -51,7 +51,7 @@ class EmployeeController extends Controller
         if($request->filled('nip')) {
             $emp->nip = $request->nip;
         } else {
-            $emp->nip = 'Honorer';
+            $emp->nip = '-';
         }
         $emp->name = $request->name;
         $emp->job = $request->job;
