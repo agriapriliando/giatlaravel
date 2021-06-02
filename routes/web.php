@@ -86,6 +86,11 @@ Route::get('/daily',[ReportController::class, 'daily']);
 //UserController
 Route::get('/user',[UserController::class, 'index']);
 Route::get('/employeeac',[UserController::class, 'employeeac'])->name('employeeac');
+Route::get('/user/add', [UserController::class, 'useradd']);
+Route::patch('/user/addprocess', [UserController::class, 'useraddProcess']);
 Route::get('/user/edit/{id}', [UserController::class, 'useredit']);
 Route::patch('/user/edit/{id}', [UserController::class, 'usereditProcess']);
+
+Route::get('/user/pass/{id}', [UserController::class, 'userPass']);
+Route::patch('/user/pass/{id}', [UserController::class, 'userPassProcess']);
 Route::delete('/user/delete/{id}', [UserController::class, 'userDelete']);

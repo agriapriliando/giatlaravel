@@ -58,7 +58,8 @@
                             <td>{{ $item->organization->title}}</td>
                             <td>{{ $item->email}}</td>
                             <td>
-                                <a href="{{ url('user/edit/'.$item->id)}} " class="btn btn-info btn-sm"><i class="fas fa-eye"></i>Ubah</a>
+                                <a href="{{ url('user/edit/'.$item->id)}} " class="btn btn-info btn-sm"><i class="fas fa-eye"></i> Ubah</a>
+                                <a href="{{ url('user/pass/'.$item->id)}} " class="btn btn-secondary btn-sm"><i class="fas fa-key"></i> Password</a>
                                 <form method="POST" action="{{ url('user/delete/'.$item->id)}}">
                                     @method('DELETE')
                                     @csrf

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\Employee;
 
 class LoginController extends Controller
 {
@@ -19,9 +20,11 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             $users = DB::table('users')->where('email', $request->email)->first();
+            $emp = Employee::where('id',$users->employee_id)->first();
             if($users->role == 1) {
                 session([
                     'user' => 'admin',
+                    'emp' => $emp->name,
                     'id' => $users->id,
                     'org' => $users->organization_id
                     ]);
@@ -29,6 +32,7 @@ class LoginController extends Controller
             } elseif($users->role == 2) {
                 session([
                     'user' => 'pegawai',
+                    'emp' => $emp->name,
                     'id' => $users->id,
                     'org' => $users->organization_id
                     ]);

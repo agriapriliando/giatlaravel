@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Organization;
 use App\Models\Employee;
 
+use Illuminate\Support\Facades\Hash;
+
 class UserController extends Controller
 {
     public function index()
@@ -31,6 +33,27 @@ class UserController extends Controller
         return response()->json($dataModified);
     }
 
+    public function useradd()
+    {
+        $org = Organization::all();
+        return view('user.add', compact('org'));
+    }
+
+    public function useraddProcess(Request $request)
+    {
+        $user = new User;
+        $user->organization_id = $request->organization_id;
+        $user->employee_id = $request->employee_id;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->name);
+        $user->role = $request->role;
+        $user->save();
+
+        return redirect('/user')->with('status','Akun berhasil ditambahkan');
+
+    }
+
     public function useredit($id)
     {
         $user = User::find($id);
@@ -50,6 +73,29 @@ class UserController extends Controller
         $user->save();
 
         return redirect('user')->with('status','Akun Berhasil dirubah');;
+    }
+
+    public function userPass($id)
+    {
+        $user = User::find($id);
+        return view('user.pass', compact('user'));
+    }
+
+    public function userPassProcess($id, Request $request)
+    {
+        $user = User::find($id);
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect('/user')->with('status','Password berhasil dirubah');
+    }
+
+    public function userDelete($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect('/user')->with('status','Akun berhasil dihapus');
     }
 
 }
