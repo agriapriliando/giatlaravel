@@ -19,18 +19,38 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name' => 'Administrator',
-                'email' => 'admin@iaknpky.ac.id',
+                'id' => 1,
+                'name' => 'Agri Apriliando',
+                'email' => 'agri@iaknpky.ac.id',
                 'role' => '1',
-                'password' => Hash::make('admin'),
+                'password' => Hash::make('iakn2021'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'name' => 'Agri Apriliando',
-                'email' => 'agriapriliando@iaknpky.ac.id',
+                'id' => 2,
+                'name' => 'Susi',
+                'email' => 'susi@iaknpky.ac.id',
                 'role' => '2',
-                'password' => Hash::make('agri'),
+                'password' => Hash::make('iakn2021'),
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 3,
+                'name' => 'Novita Erianti',
+                'email' => 'novitaerianti@iaknpky.ac.id',
+                'role' => '2',
+                'password' => Hash::make('iakn2021'),
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 4,
+                'name' => 'Endang Juwanto',
+                'email' => 'endangjuwanto@iaknpky.ac.id',
+                'role' => '2',
+                'password' => Hash::make('iakn2021'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]

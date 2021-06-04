@@ -8,6 +8,7 @@ use App\Models\Organization;
 use App\Models\Employee;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -22,6 +23,7 @@ class UserController extends Controller
     {
         // $cari = "Agri Apriliando";
         $datas = Employee::select("id","name")
+                ->where('status_tersedia','belum')
                 ->where("name","LIKE", '%'.$request->get('query').'%')->distinct()
                 ->get();
         // return $datas;
@@ -41,16 +43,29 @@ class UserController extends Controller
 
     public function useraddProcess(Request $request)
     {
-        $user = new User;
-        $user->organization_id = $request->organization_id;
-        $user->employee_id = $request->employee_id;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make('iakn2021');
-        $user->role = $request->role;
-        $user->save();
+        DB::beginTransaction();
+            try{
+            $user = new User;
+            $user->organization_id = $request->organization_id;
+            $user->employee_id = $request->employee_id;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = Hash::make('iakn2021');
+            $user->role = $request->role;
+            $user->save();
 
-        return redirect('/user')->with('status','Akun berhasil ditambahkan');
+            $emp = Employee::find($request->employee_id);
+            $emp->status_tersedia = 'sudah';
+            $emp->save();
+
+            DB::commit();
+
+            return redirect('/user')->with('status','Akun berhasil ditambahkan');
+
+            }catch(\Exception $e){
+                DB::rollback();
+                return redirect('/user')->with('status','Data Gagal Terinput');
+            }
 
     }
 
@@ -96,10 +111,24 @@ class UserController extends Controller
 
     public function userDelete($id)
     {
-        $user = User::find($id);
-        $user->delete();
+        DB::beginTransaction();
 
-        return redirect('/user')->with('status','Akun berhasil dihapus');
+            try{
+            $user = User::find($id);
+            $user->delete();
+
+            $emp = Employee::find($user->employee_id);
+            $emp->status_tersedia = 'belum';
+            $emp->save();
+
+            DB::commit();
+
+            return redirect('/user')->with('status','Akun berhasil dihapus');
+
+            }catch(\Exception $e){
+                DB::rollback();
+                return redirect('/user')->with('status','Ada Kegagalan Proses');
+            }
     }
 
 }

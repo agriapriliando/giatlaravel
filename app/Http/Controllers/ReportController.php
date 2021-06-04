@@ -26,7 +26,7 @@ class ReportController extends Controller
         $date = $request->tanggal;
         $tanggal = Carbon::createFromFormat('Y-m-d', $date);
         $work = Work::where('user_id',$ses_id)->whereMonth('created_at', $bulan)->whereYear('created_at', $tahun)->get();
-        $profil = Employee::where('user_id', $ses_id)->first();
+        $profil = Employee::where('id', $ses_id)->first();
 
         return view('report.daily', compact('bulan', 'tahun', 'work', 'profil', 'tanggal'));
     }
@@ -39,7 +39,7 @@ class ReportController extends Controller
         $date = $request->tanggal;
         $tanggal = Carbon::createFromFormat('Y-m-d', $date);
         $work = Work::where('user_id',$ses_id)->whereMonth('created_at', $bulan)->whereYear('created_at', $tahun)->get();
-        $profil = Employee::where('user_id', $ses_id)->first();
+        $profil = Employee::where('id', $ses_id)->first();
         
         // sum jumlah bygroup title
         $works = Work::where('user_id',$ses_id)->whereMonth('created_at', $bulan)->whereYear('created_at', $tahun)

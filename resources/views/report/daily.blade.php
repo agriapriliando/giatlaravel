@@ -5,7 +5,7 @@
 @section('content')
 <page size="A4" class="p-5">
     <div class="d-print-none">
-        <a href="{{ url('')}} " class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
+        <a href="{{ url('report')}} " class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
         <a href="" class="btn btn-primary" onclick="window.print()"><i class="fa fa-print"></i> Cetak</a>
     </div>
     <div class="text-center font-weight-bold">
@@ -48,7 +48,7 @@
             <td class="text-center">{{$loop->iteration}}.</td>
             <td>{{str_ireplace($find,$replace,$item->created_at->format("l"))}}</td>
             <td>{{$item->created_at->format("d/m/Y")}}</td>
-            <td><span style="font-weight: bold">{{$item->title}}</span> <span style="font-style: italic">{{"| Detail: ".$item->desc}}</span></td>
+            <td><span style="font-weight: bold">{{$item->title}}</span> <span style="font-style: italic">{{"| Detail: ".$item->detail}}</span></td>
             <td class="text-center">{{$item->qty}}</td>
             <td>{{$item->qtyunit}}</td>
         </tr>

@@ -12,7 +12,7 @@
 
 @section('content')
 <div class="container-fluid text-white">
-    <h1 class="mt-4 pb-2">Hai, <b>Agri Apriliando</b></h1>
+    <h1 class="mt-4 pb-2">Hai, <b>{{ session('emp')}}</b></h1>
     <div class="row">
         <div class="col">
             <p>Ini adalah <span style="background-color: white; color:#c91dd1; padding: 10px; border-radius: 8px; line-height: 5px;">FORM TAMBAH KEGIATAN HARIAN</span></p><p>Silahkan lakukan pengisian form berikut.</p>
@@ -33,9 +33,9 @@
                 </div>
                 <div class="form-group">
                     <label>Deskripsi Kegiatan</label>
-                    <textarea name="desc"class="form-control @error('desc') is-invalid @enderror" required>{{old('desc')}}</textarea>
+                    <textarea name="detail"class="form-control @error('detail') is-invalid @enderror" required>{{old('detail')}}</textarea>
                     <small>Petunjuk : Isi dengan penjelasan dari kegiatan utama | Contoh : Pengisian KRS Mhs Program Studi Musik Gereja TA 2020/2021 Genap</small>
-                    @error('desc')
+                    @error('detail')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
@@ -64,7 +64,7 @@
                 <div class="row">
                     <div class="col">
                         <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                        <a href="{{ url('act')}}" class="btn btn-info mb-4 btn-block">Batal</a>
+                        <a href="{{ url('dashboard')}}" class="btn btn-info mb-4 btn-block">Batal</a>
                     </div>
                 </div>
             </form>

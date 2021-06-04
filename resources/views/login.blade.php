@@ -23,11 +23,11 @@
                         <form action="{{url('/login')}}" method="POST">
                             @csrf
                             <div class="form-floating mb-3">
-                                <input name="email" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                <input name="login" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" required>
                                 <label class="fw-light" for="floatingInput">Email</label>
                               </div>
                               <div class="form-floating">
-                                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
                                 <label class="fw-light" for="floatingPassword">Password</label>
                             </div>
                             <div class="my-3 form-check">

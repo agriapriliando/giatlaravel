@@ -5,11 +5,11 @@
 @section('content')
 <page size="A4" class="p-5">
     <div class="d-print-none">
-        <a href="{{ url('')}} " class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
+        <a href="{{ url('report')}} " class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
         <a href="" class="btn btn-primary" onclick="window.print()"><i class="fa fa-print"></i> Cetak</a>
     </div>
     <div class="text-center font-weight-bold">
-        <p>LAPORAN KINERJA HARIAN <br>
+        <p>LAPORAN KINERJA BULANAN <br>
         BULAN {{strtoupper($work[0]->created_at->isoFormat('MMMM'))." ".$work[0]->created_at->format("Y")}}</p>
     </div>
 

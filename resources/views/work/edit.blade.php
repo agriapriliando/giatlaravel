@@ -34,9 +34,9 @@
                 </div>
                 <div class="form-group">
                     <label>Deskripsi Kegiatan</label>
-                    <textarea name="desc"class="form-control @error('desc') is-invalid @enderror" required>{{$act->desc}}</textarea>
+                    <textarea name="detail"class="form-control @error('detail') is-invalid @enderror" required>{{$act->detail}}</textarea>
                     <small>Petunjuk : Isi dengan penjelasan dari kegiatan utama | Contoh : Pengisian KRS Mhs Program Studi Musik Gereja TA 2020/2021 Genap</small>
-                    @error('desc')
+                    @error('detail')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>

@@ -23,14 +23,6 @@ class UnitSeeder extends Seeder
                 'level' => 'B',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ],
-            [
-                'title' => 'Sub Bagian Administrasi Umum',
-                'organization_id' => 1,
-                'desc' => 'Sub Bagian Administrasi Umum',
-                'level' => 'C',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]
         ]);
     }

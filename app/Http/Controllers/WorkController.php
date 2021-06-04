@@ -53,7 +53,7 @@ class WorkController extends Controller
     public function actaddProcess(Request $request)
     {
         $ses_id = session('id');
-        $ses_org = session('id');
+        $ses_org = session('org');
         $emp = Employee::find($ses_id);
         $unit_user = $emp->unit->id;
         
@@ -62,7 +62,7 @@ class WorkController extends Controller
         $act->unit_id = $unit_user;
         $act->organization_id = $ses_org;
         $act->title = $request->title;
-        $act->desc = $request->desc;
+        $act->detail = $request->detail;
         $act->qty = $request->qty;
         $act->qtyunit = $request->qtyunit;
         DB::transaction(function () use ($act) {
@@ -94,7 +94,7 @@ class WorkController extends Controller
         $act->unit_id = $unit_user;
         $act->organization_id = $ses_org;
         $act->title = $request->title;
-        $act->desc = $request->desc;
+        $act->detail = $request->detail;
         $act->qty = $request->qty;
         $act->qtyunit = $request->qtyunit;
         $act->created_at = $request->created_at;

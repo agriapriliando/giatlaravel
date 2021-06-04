@@ -30,7 +30,7 @@
                 <tr>
                     <th>Deskripsi</th>
                     <th>:</th>
-                    <td>{{ $act->desc}}</td>
+                    <td>{{ $act->detail}}</td>
                 </tr>
                 <tr>
                     <th>Jumlah</th>

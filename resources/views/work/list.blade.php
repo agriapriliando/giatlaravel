@@ -47,7 +47,7 @@
                     <tbody>
                         @foreach ($act as $item)
                         <tr>
-                            <td>{{ $item->title }}<span class="font-weight-bold"> | Detail: </span>{{$item->desc}}</td>
+                            <td>{{ $item->title }}<span class="font-weight-bold"> | Detail: </span>{{$item->detail}}</td>
                             <td>{{ $item->qty}}</td>
                             <td>{{ $item->qtyunit}}</td>
                             <td>{{ date_format($item->created_at,'d/m/Y G:H')}}</td>
@@ -56,7 +56,7 @@
                                 <form action="{{url('act/delete/'.$item->id)}}" method="POST">
                                     @method('DELETE')
                                     @csrf
-                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Hapus</button>
+                                    <button onclick="return confirm('Yakin ingin Hapus Data?')" type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Hapus</button>
                                 </form>
                             </td>
                         </tr>

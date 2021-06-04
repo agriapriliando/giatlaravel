@@ -19,7 +19,7 @@ class CreateWorksTable extends Migration
             $table->foreignId('unit_id')->constrained('units')->onUpdate('cascade');
             $table->foreignId('organization_id')->constrained('organizations')->onUpdate('cascade');
             $table->string('title',200);
-            $table->text('desc');
+            $table->text('detail');
             $table->integer('qty');
             $table->string('qtyunit',50);
             $table->timestamps();

@@ -17,9 +17,23 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL ) 
+        ? 'email' 
+        : 'name';
+
+        $request->merge([
+            $login_type => $request->input('login')
+        ]);
+        // $credentials = $request->only('email', 'password');
+        $credentials = $request->only($login_type, 'password');
+
         if (Auth::attempt($credentials)) {
-            $users = DB::table('users')->where('email', $request->email)->first();
+            if (filter_var($login_type) == 'email') {
+                $users = DB::table('users')->where('email', $request->input('login'))->first();
+            } else {
+                $users = DB::table('users')->where('name', $request->input('login'))->first();
+            }
+            // return $users;
             $emp = Employee::where('id',$users->employee_id)->first();
             if($users->role == 1) {
                 session([

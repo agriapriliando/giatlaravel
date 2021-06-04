@@ -10,6 +10,7 @@ use App\Models\Unit;
 use App\Models\Organization;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
@@ -56,6 +57,7 @@ class EmployeeController extends Controller
         $emp->name = $request->name;
         $emp->job = $request->job;
         $emp->contact = $request->contact;
+        $emp->status_tersedia = 'belum';
         $emp->save();
 
         return redirect('/emp/list')->with('status','Data Pegawai berhasil ditambahkan');
