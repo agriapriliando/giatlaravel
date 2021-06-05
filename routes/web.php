@@ -94,3 +94,7 @@ Route::patch('/user/edit/{id}', [UserController::class, 'usereditProcess']);
 Route::get('/user/pass/{id}', [UserController::class, 'userPass']);
 Route::patch('/user/pass/{id}', [UserController::class, 'userPassProcess']);
 Route::delete('/user/delete/{id}', [UserController::class, 'userDelete']);
+
+//UserController pass account
+Route::get('/user/pass', [UserController::class, 'userPassAccount']);
+Route::patch('/user/passaccount', [UserController::class, 'userPassAccountProcess']);

@@ -36,7 +36,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i> {{session('emp')}} </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="{{ url('/user/pass/'.session('id'))}}">Ganti Password</a>
+                        <a class="dropdown-item" href="{{ url('/user/pass')}}">Ganti Password</a>
                         {{-- <a class="dropdown-item" href="#">Aktivitas Terakhir</a> --}}
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('logout')}}">Logout</a>
@@ -128,7 +128,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Agri Apriliando
+                        {{session('emp')}}
                     </div>
                 </nav>
             </div>

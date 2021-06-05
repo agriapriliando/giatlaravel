@@ -109,6 +109,27 @@ class UserController extends Controller
         return redirect('/user')->with('status','Password berhasil dirubah');
     }
 
+    public function userPassAccount()
+    {
+        $ses_id = session('id');
+        $user = User::find($ses_id);
+        return view('user.pass_account', compact('user'));
+    }
+
+    public function userPassAccountProcess(Request $request)
+    {
+        $ses_id = session('id');
+        $user = User::find($ses_id);
+        if($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        } else {
+            $user->password = Hash::make('iakn2021');
+        }
+        $user->save();
+
+        return redirect('/dashboard')->with('status','Password berhasil dirubah');
+    }
+
     public function userDelete($id)
     {
         DB::beginTransaction();

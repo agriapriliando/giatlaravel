@@ -12,7 +12,7 @@
 
 @section('content')
 <div class="container-fluid">
-    <h1 class="mt-4 pb-2 text-white">Hai, <b>Agri Apriliando</b></h1>
+    <h1 class="mt-4 pb-2 text-white">Hai, <b>{{ session('emp')}}</b></h1>
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table mr-1"></i>
