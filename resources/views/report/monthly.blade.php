@@ -51,8 +51,8 @@
         <div class="col-1">
 
         </div>
-        <div class="col-5 pengesahan">
-            <div class="mt-5">
+        <div class="col-5 pengesahan" style="background: blueviolet;">
+            <div class="mt-5" style="background-color: burlywood; height: 180px">
                 <p>Mengetahui,<br>
                 {{$profil->leader->job}},</p>
             </div>
@@ -63,7 +63,7 @@
         </div>
         <div class="col-1">
         </div>
-        <div class="col-5">
+        <div class="col-5" style="background: blueviolet;">
             {{-- <p>Palangka Raya, <span id="date-time"></span></p> --}}
             <?php
                 $replace = array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus","September","Oktober","November","Desember");
@@ -71,7 +71,9 @@
             ?>
             <p>Palangka Raya, {{$tanggal->format('d')." ".str_replace($find,$replace,$tanggal->format('n'))." ".$tanggal->format('Y')}}</p>
             {{-- <p>Palangka Raya, {{$tanggal}}</p> --}}
-            <p>Yang bersangkutan,</p>
+            <div style="background-color: burlywood; height: 180px">
+                <p>Yang bersangkutan,</p>
+            </div>
             <div class="ttdkanan">
                 <p>{{$profil->name}} <br>
                 NIP. {{$profil->nip}}</p>
