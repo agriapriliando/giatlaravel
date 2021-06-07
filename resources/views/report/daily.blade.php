@@ -57,14 +57,13 @@
 
     <div class="row justify-content-center">
         <div class="col-1">
-
         </div>
         <div class="col-5 pengesahan">
-            <div class="mt-5">
+            <div class="mt-5 ttd">
                 <p>Mengetahui,<br>
                 {{$profil->leader->job}},</p>
             </div>
-            <div class="ttdkiri">
+            <div>
                 <p>{{$profil->leader->name}}<br>
                 NIP. {{$profil->leader->nip}}</p>
             </div>
@@ -77,10 +76,12 @@
                 $replace = array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus","September","Oktober","November","Desember");
                 $find = array("1","2","3","4","5","6","7","8","9","10","11","12");
             ?>
-            <p>Palangka Raya, {{$tanggal->format('d')." ".str_replace($find,$replace,$tanggal->format('n'))." ".$tanggal->format('Y')}}</p>
-            {{-- <p>Palangka Raya, {{$tanggal}}</p> --}}
-            <p>Yang bersangkutan,</p>
-            <div class="ttdkanan">
+                <p>Palangka Raya, {{$tanggal->format('d')." ".str_replace($find,$replace,$tanggal->format('n'))." ".$tanggal->format('Y')}}</p>
+                {{-- <p>Palangka Raya, {{$tanggal}}</p> --}}
+            <div class="ttd">
+                <p>Yang bersangkutan,</p>
+            </div>
+            <div>
                 <p>{{$profil->name}} <br>
                 NIP. {{$profil->nip}}</p>
             </div>

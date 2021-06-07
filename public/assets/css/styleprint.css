@@ -23,13 +23,9 @@ page[size="A4"] {
     /* height: 29.7cm;  */
 }
 
-/* .ttdkiri {
-    padding-top: 12vh;
-} */
-
-/* .ttdkanan {
-    padding-top: 21vh;
-} */
+.ttd {
+    height: 180px;
+}
 
 @media print {
     body, page {
@@ -46,17 +42,6 @@ page[size="A4"] {
         height: 29.2cm; 
     }
 
-    /* .ttdkiri {
-        padding-top: 6vh;
-    } */
-
-    /* .ttdkanan {
-        position: absolute;
-        left: 12px;
-        top: 50px;
-        z-index: -1;
-        padding-top: 9.9vh;
-    } */
 }
 
 td {
