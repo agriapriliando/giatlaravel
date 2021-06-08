@@ -58,7 +58,7 @@
     <div class="row justify-content-center">
         <div class="col-1">
         </div>
-        <div class="col-5 pengesahan">
+        <div class="col-5 pengesahan ttd">
             <div class="mt-5 ttd">
                 <p>Mengetahui,<br>
                 {{$profil->leader->job}},</p>
