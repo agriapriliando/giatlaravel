@@ -17,8 +17,8 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $('#dataKegiatan').DataTable( {
-    "lengthMenu": [[5, 25, 50, -1], [5, 25, 50, "All"]]
-    //"order": [[ 3, "desc" ]]
+    "lengthMenu": [[5, 25, 50, -1], [5, 25, 50, "All"]],
+    "order": [[ 3, "desc" ]]
   } );
 } );
 

@@ -12,7 +12,7 @@
 
 @section('content')
 <div class="container-fluid text-white">
-    <h1 class="mt-4">Hai, <b>Agri Apriliando</b></h1>
+    <h1 class="mt-4">Hai, <b>{{ session('emp')}}</b></h1>
     <hr class="hr mb-4">
     <div class="row">
         <div class="col">

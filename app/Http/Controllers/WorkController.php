@@ -65,11 +65,9 @@ class WorkController extends Controller
         $act->detail = $request->detail;
         $act->qty = $request->qty;
         $act->qtyunit = $request->qtyunit;
-        DB::transaction(function () use ($act) {
-            $act->save();
-        });
+        $act->save();
 
-        return redirect('/act')->with('status', 'Kegiatan Berhasil ditambahkan');
+        return redirect('/dashboard')->with('status', 'Kegiatan Berhasil ditambahkan');
     }
 
     public function actedit($id)
@@ -85,24 +83,19 @@ class WorkController extends Controller
     public function acteditProcess($id, Request $request)
     {
         $ses_id = session('id');
-        $ses_org = session('id');
+        $ses_org = session('org');
         $emp = Employee::find($ses_id);
-        $unit_user = $emp->unit->id;
+        // $unit_user = $emp->unit->id;
         
         $act = Work::find($id);
-        $act->user_id = $ses_id;
-        $act->unit_id = $unit_user;
-        $act->organization_id = $ses_org;
         $act->title = $request->title;
         $act->detail = $request->detail;
         $act->qty = $request->qty;
         $act->qtyunit = $request->qtyunit;
         $act->created_at = $request->created_at;
-        DB::transaction(function () use ($act) {
-            $act->save();
-        });
+        $act->save();
 
-        return redirect('/act')->with('status', 'Kegiatan Berhasil dirubah');
+        return redirect('/dashboard')->with('status', 'Kegiatan Berhasil dirubah');
     }
 
     public function actDelete($id)

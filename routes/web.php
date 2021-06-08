@@ -34,6 +34,7 @@ Route::get('/logout', [LoginController::class, 'logout']);
 // dashboardController
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/worksall', [DashboardController::class, 'worksall']);
 
 // OrganizationController
 Route::get('/org', [OrganizationController::class, 'orglist']);
