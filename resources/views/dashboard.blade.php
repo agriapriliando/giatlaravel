@@ -17,15 +17,29 @@
         <div class="col-12">
             <p class="h5">Ini adalah layanan perekaman kegiatan harian.</p>
             <p class="h4 mb-2"><span class="badge badge-primary p-2"> Tanggal Hari Ini {{$tgl}}</span></p>
-            <a href="{{url('act/add')}}" class="btn btn-success mb-2"><i class="fa fa-plus-square"></i> Tambah</a>
-            <a href="{{url('act')}}" class="btn btn-info mb-2"><i class="fa fa-eye"></i> Kegiatan Saya</a>
-            <a href="{{url('worksall')}}" class="btn btn-warning mb-2"><i class="fa fa-eye"></i> Kegiatan Pegawai</a>
+            <button class="btn btn-warning mb-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Lihat Kegiatan Pegawai
+            </button>
+            <div class="collapse row" id="collapseExample">
+                <div class="col">
+                    <a href="{{url('worksall')}}" class="btn btn-warning mb-2"><i class="fa fa-eye"></i> Hari Ini</a>
+                    @if (session('user') == 'admin')
+                    <a href="{{url('workspeg')}}" class="btn btn-warning mb-2"><i class="fa fa-eye"></i> Tahun Berjalan</a>
+                    @endif
+                </div>
+            </div>
         </div>
     </div>
     <div class="card mb-4" style="color: black !important">
         <div class="card-header">
             <i class="fas fa-table mr-1"></i>
             DAFTAR KEGIATAN ANDA BULAN {{ $bulaniniupper }}
+            <div class="row">
+                <div class="col">
+                    <a href="{{url('act/add')}}" class="btn btn-success mb-2"><i class="fa fa-plus-square"></i> Tambah</a>
+                    <a href="{{url('act')}}" class="btn btn-info mb-2"><i class="fa fa-eye"></i> Kegiatan Saya</a>
+                </div>
+            </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">

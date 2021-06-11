@@ -46,4 +46,20 @@ class DashboardController extends Controller
         return view('work.listall', compact('act','bulaniniupper','tgl'));
     }
 
+    public function workspeg()
+    {
+        $ses_id = session('id');
+
+        $bulan = Carbon::today()->month;
+        $bulanlalu = Carbon::now()->subMonth()->month;
+        $bulanini = Carbon::now()->isoFormat('MMMM Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
+        $bln = Carbon::now()->isoFormat('MMMM Y');
+        $bulaniniupper = Str::of($bulanini)->upper();
+
+        $act = Work::with('user.employee')->whereMonth('created_at',$bulan)->orderBy('created_at')->get();
+
+        return view('work.listall_peg', compact('act','bulaniniupper','tgl','bln'));
+    }
+
 }
